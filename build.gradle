@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'io.freefair.lombok' version '6.3.0'
+    id 'org.springframework.boot' version '2.7.4'
+    id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+}
+
+allprojects {
+    group 'spring.boot.training'
+    version '1.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.freefair.lombok'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter'
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
+}
+
+application {
+    mainClass = 'spring.boot.training.bank.Application'
+}
+

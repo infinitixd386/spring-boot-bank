@@ -1,0 +1,11 @@
+dependencies {
+    implementation project(':domain')
+}
+
+jar {
+    enabled = true
+}
+
+bootJar {
+    enabled = false
+}
